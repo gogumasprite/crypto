@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Top DeFi Staking Pools | Crypto Yield Factory{% endblock %}
+
+{% block content %}
+<section style="margin-bottom: 4rem;">
+    <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">Unlock Deterministic Yield.</h1>
+    <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 600px;">
+        We filter thousands of pools to find the highest stability scores. No junk, no spam, just pure data-driven
+        yield.
+    </p>
+</section>
+
+<div class="card">
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="text-align: left; border-bottom: 1px solid var(--border); color: var(--text-secondary);">
+                <th style="padding: 1rem;">Protocol</th>
+                <th style="padding: 1rem;">Asset</th>
+                <th style="padding: 1rem;">TVL</th>
+                <th style="padding: 1rem;">APY</th>
+                <th style="padding: 1rem;">Stability</th>
+                <th style="padding: 1rem;">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pool in pools[:100] %}
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 1rem;">
+                    <span style="font-weight: 600;">{{ pool.project | capitalize }}</span>
+                    <br><small style="color: var(--text-secondary);">{{ pool.chain }}</small>
+                </td>
+                <td style="padding: 1rem;">{{ pool.symbol }}</td>
+                <td style="padding: 1rem;">${{ (pool.tvlUsd / 1000000) | round(2) }}M</td>
+                <td style="padding: 1rem;">
+                    <span class="badge badge-positive">{{ pool.apy | round(2) }}%</span>
+                </td>
+                <td style="padding: 1rem;">{{ pool.stability_score }}</td>
+                <td style="padding: 1rem;">
+                    <a href="/pools/{{ pool.slug }}.html" style="color: var(--accent); text-decoration: none;">View
+                        Detail &rarr;</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

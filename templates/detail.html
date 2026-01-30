@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}{{ pool.symbol }} Staking on {{ pool.project | capitalize }} ({{ pool.chain }}) - High Yield
+Arbitrage{% endblock %}
+{% block description %}Analyze the {{ pool.apy }}% APY for {{ pool.symbol }} on {{ pool.project }}. Stability score: {{
+pool.stability_score }}. Detailed yield analysis and staking guide.{% endblock %}
+
+{% block extra_css %}
+.btn-cta {
+display: block;
+width: 100%;
+padding: 1.2rem;
+background: var(--gradient);
+color: var(--bg-color);
+text-align: center;
+border-radius: 12px;
+font-weight: 800;
+text-decoration: none;
+font-family: 'Outfit', sans-serif;
+font-size: 1.2rem;
+margin-top: 1.5rem;
+transition: transform 0.2s ease;
+}
+.btn-cta:hover {
+transform: scale(1.02);
+}
+{% endblock %}
+
+{% block content %}
+<a href="/" style="color: var(--text-secondary); text-decoration: none; display: block; margin-bottom: 2rem;">&larr;
+    Back to Dashboard</a>
+
+<div class="grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+    <div>
+        <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">{{ pool.symbol }} Staking info</h1>
+        <p style="font-size: 1.5rem; color: var(--text-secondary);">Provided by {{ pool.project | capitalize }} on {{
+            pool.chain }}</p>
+
+        <div class="card" style="margin-top: 3rem;">
+            <h3>Strategic Analysis</h3>
+            <p>
+                This pool for <strong>{{ pool.symbol }}</strong> on the <strong>{{ pool.chain }}</strong> network has a
+                total value locked of
+                <strong>${{ "{:,.0f}".format(pool.tvlUsd) }}</strong>.
+                With an annual percentage yield of <strong>{{ pool.apy }}%</strong>, it represents a high-quality
+                staking opportunity in the current market.
+            </p>
+            <p>
+                Our <strong>Stability Score of {{ pool.stability_score }}</strong> accounts for TVL depth and historical
+                volatility,
+                ensuring you are looking at sustainable yield rather than transient spikes.
+            </p>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <div class="card">
+            <small style="color: var(--text-secondary); text-transform: uppercase;">Stability Score</small>
+            <div style="font-size: 3rem; font-weight: 800; color: var(--accent);">{{ pool.stability_score }}</div>
+        </div>
+        <div class="card" style="border: 1px solid var(--accent);">
+            <small style="color: var(--text-secondary); text-transform: uppercase;">Current APY</small>
+            <div style="font-size: 3rem; font-weight: 800; color: var(--text-primary);">{{ pool.apy }}%</div>
+            <a href="{{ pool.referral_link }}" class="btn-cta" target="_blank">Start Staking Now &rarr;</a>
+        </div>
+        <div class="card">
+            <small style="color: var(--text-secondary); text-transform: uppercase;">Total Value Locked</small>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary);">${{
+                "{:,.0f}".format(pool.tvlUsd) }}</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

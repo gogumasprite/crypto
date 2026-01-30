@@ -1,0 +1,5 @@
+output/
+data/yields.json
+__pycache__/
+*.pyc
+.env
