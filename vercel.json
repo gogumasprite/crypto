@@ -1,5 +1,5 @@
 {
-    "buildCommand": "pip install -r requirements.txt && python scripts/fetch_data.py && python scripts/build_site.py",
+    "buildCommand": "python3 -m pip install --break-system-packages -r requirements.txt && python3 scripts/fetch_data.py && python3 scripts/build_site.py",
     "outputDirectory": "output",
     "cleanUrls": true
 }
