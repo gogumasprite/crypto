@@ -21,94 +21,101 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700&display=swap"
         rel="stylesheet">
-    * {
-    box-sizing: border-box;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    :root {
-    --bg-color: #050505;
-    --card-bg: #0f0f0f;
-    --accent: #00ff88;
-    --text-primary: #ffffff;
-    --text-secondary: #999999;
-    --border: #222222;
-    --gradient: linear-gradient(135deg, #00ff88 0%, #00bcff 100%);
-    }
+        :root {
+            --bg-color: #050505;
+            --card-bg: #0f0f0f;
+            --accent: #00ff88;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --border: #222222;
+            --gradient: linear-gradient(135deg, #00ff88 0%, #00bcff 100%);
+        }
 
-    body {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    line-height: 1.6;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
 
-    header {
-    padding: 2rem;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    }
+        header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .logo {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
-    }
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
 
-    .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
 
-    .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
 
-    .card:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
-    }
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
 
-    footer {
-    padding: 4rem 2rem;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    }
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
 
-    h1,
-    h2,
-    h3 {
-    font-family: 'Outfit', sans-serif;
-    }
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+        }
 
-    .badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
 
-    .badge-positive {
-    background: rgba(0, 255, 136, 0.1);
-    color: var(--accent);
-    }
+        .badge-positive {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--accent);
+        }
 
-    {% block extra_css %}{% endblock %}
+            {
+            % block extra_css %
+        }
+
+            {
+            % endblock %
+        }
     </style>
 </head>
 
