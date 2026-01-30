@@ -1,9 +1,9 @@
 {
     "projects": {
-        "lido": "https://www.binance.com/en/staking?ref=YOUR_REF_ID",
-        "aave-v3": "https://www.bybit.com/en-US/earn/savings/?ref=YOUR_REF_ID",
-        "uniswap-v3": "https://accounts.binance.com/en/register?ref=YOUR_REF_ID",
-        "aerodrome-slipstream": "https://www.okx.com/join/YOUR_REF_ID"
+        "lido": "https://accounts.binance.com/register?ref=1211294163",
+        "aave-v3": "https://accounts.binance.com/register?ref=1211294163",
+        "uniswap-v3": "https://accounts.binance.com/register?ref=1211294163",
+        "aerodrome-slipstream": "https://accounts.binance.com/register?ref=1211294163"
     },
-    "default": "https://www.binance.com/en/register?ref=YOUR_REF_ID"
+    "default": "https://accounts.binance.com/register?ref=1211294163"
 }
