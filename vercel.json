@@ -1,5 +1,7 @@
 {
+    "version": 2,
     "buildCommand": "pip install -r requirements.txt && python scripts/fetch_data.py && python scripts/build_site.py",
     "outputDirectory": "output",
+    "cleanUrls": true,
     "framework": null
 }
