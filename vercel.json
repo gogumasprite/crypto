@@ -1,12 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "output"
-            }
-        }
-    ]
+    "buildCommand": "pip install -r requirements.txt && python scripts/fetch_data.py && python scripts/build_site.py",
+    "outputDirectory": "output",
+    "cleanUrls": true
 }
