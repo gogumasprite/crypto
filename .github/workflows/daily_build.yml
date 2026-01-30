@@ -1,4 +1,4 @@
-name: Daily Yield Factory Build
+name: Daily Yield Factory Update
 
 on:
   schedule:
@@ -6,33 +6,16 @@ on:
   workflow_dispatch: # Allow manual trigger
 
 jobs:
-  build-and-deploy:
+  trigger-update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Fetch Latest DeFi Data
-        run: python scripts/fetch_data.py
-
-      - name: Build Static Site
-        run: python scripts/build_site.py
-
-      - name: Deploy to Vercel
+      - name: Trigger Vercel Deployment
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
-          working-directory: ./output
+          vercel-args: '--prod --force' # --force ensures new data is fetched by Vercel's build command
