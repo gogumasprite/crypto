@@ -1,0 +1,23 @@
+/* CTA Button Styles */
+.btn-cta {
+    display: block;
+    width: 100%;
+    padding: 1.2rem;
+    background: #F3BA2F; /* Binance Yellow for Max Contrast */
+    color: #000000; /* High Contrast Black */
+    text-align: center;
+    border-radius: 8px; /* Rounded corners */
+    font-weight: 800;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(243, 186, 47, 0.3);
+}
+
+.btn-cta:hover {
+    transform: scale(1.02);
+    background: #FFD050; /* Slightly lighter yellow on hover */
+    box-shadow: 0 6px 20px rgba(243, 186, 47, 0.5);
+}

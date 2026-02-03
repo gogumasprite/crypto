@@ -38,22 +38,23 @@ pool.stability_score }}. Detailed yield analysis and staking guide.{% endblock %
 display: block;
 width: 100%;
 padding: 1.2rem;
-background: #ffcc00; /* Vibrant Yellow */
+background: #F3BA2F; /* Binance Yellow for Max Contrast */
 color: #000000; /* High Contrast Black */
 text-align: center;
-border-radius: 12px;
+border-radius: 8px; /* Rounded corners as requested */
 font-weight: 800;
 text-decoration: none;
 font-family: 'Outfit', sans-serif;
 font-size: 1.2rem;
 margin-top: 1.5rem;
 transition: all 0.2s ease;
-box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+box-shadow: 0 4px 15px rgba(243, 186, 47, 0.3);
 }
+
 .btn-cta:hover {
 transform: scale(1.02);
-background: #ffdd33;
-box-shadow: 0 6px 20px rgba(255, 204, 0, 0.5);
+background: #FFD050; /* Slightly lighter yellow on hover */
+box-shadow: 0 6px 20px rgba(243, 186, 47, 0.5);
 }
 {% endblock %}
 
@@ -94,8 +95,7 @@ box-shadow: 0 6px 20px rgba(255, 204, 0, 0.5);
             <small style="color: var(--text-secondary); text-transform: uppercase;">Current APY</small>
             <div style="font-size: 3rem; font-weight: 800; color: var(--text-primary); margin: 0.5rem 0;">{{ pool.apy
                 }}%</div>
-            <a href="{{ pool.referral_link }}" class="btn-cta" target="_blank"
-                style="width: 100%; max-width: 300px;">Start Staking Now &rarr;</a>
+            <a href="{{ pool.referral_link }}" class="btn-cta" target="_blank">Start Staking Now &rarr;</a>
         </div>
         <div class="card">
             <small style="color: var(--text-secondary); text-transform: uppercase;">Total Value Locked</small>
