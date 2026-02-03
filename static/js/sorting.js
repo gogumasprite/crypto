@@ -10,18 +10,36 @@ document.addEventListener('DOMContentLoaded', function () {
         const iconSpan = document.createElement('span');
         iconSpan.className = 'sort-icon';
         iconSpan.style.marginLeft = '5px';
-        iconSpan.style.fontSize = '0.7em';
+        iconSpan.style.fontSize = '0.8em'; // Increased visibility
+        iconSpan.style.color = '#FFFFFF';   // White color for contrast on dark implementation
         header.appendChild(iconSpan);
+
+        // Hover effects for better interaction feedback
+        header.addEventListener('mouseenter', () => {
+            const currentDir = header.getAttribute('data-dir');
+            // Only brighten if not currently the active sort column (active is always 1.0)
+            if (!currentDir || currentDir === 'none') {
+                iconSpan.style.opacity = '1';
+            }
+        });
+
+        header.addEventListener('mouseleave', () => {
+            const currentDir = header.getAttribute('data-dir');
+            // Return to dimmed state if not active
+            if (!currentDir || currentDir === 'none') {
+                iconSpan.style.opacity = '0.5';
+            }
+        });
 
         header.addEventListener('click', () => {
             const currentDir = header.getAttribute('data-dir') || 'none';
-            const newDir = currentDir === 'desc' ? 'asc' : 'desc'; // Default to desc on first click usually better for numbers (highest first)
+            const newDir = currentDir === 'desc' ? 'asc' : 'desc'; // Default to desc
 
             // Reset other headers
             headers.forEach(h => {
                 h.setAttribute('data-dir', 'none');
-                h.querySelector('.sort-icon').textContent = '⇅'; // or empty
-                h.querySelector('.sort-icon').style.opacity = '0.3';
+                h.querySelector('.sort-icon').textContent = '⇅';
+                h.querySelector('.sort-icon').style.opacity = '0.5'; // Increased base opacity
             });
 
             // Set current header
@@ -36,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Initialize icon
         header.querySelector('.sort-icon').textContent = '⇅';
-        header.querySelector('.sort-icon').style.opacity = '0.3';
+        header.querySelector('.sort-icon').style.opacity = '0.5'; // Increased base opacity
     });
 });
 
