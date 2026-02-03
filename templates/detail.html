@@ -5,6 +5,34 @@ Arbitrage{% endblock %}
 {% block description %}Analyze the {{ pool.apy }}% APY for {{ pool.symbol }} on {{ pool.project }}. Stability score: {{
 pool.stability_score }}. Detailed yield analysis and staking guide.{% endblock %}
 
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "{{ pool.symbol }} Staking on {{ pool.project }}",
+  "description": "Stake {{ pool.symbol }} on {{ pool.project }} ({{ pool.chain }}) to earn {{ pool.apy }}% APY. TVL: ${{ pool.tvlUsd }}.",
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ pool.project }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "interestRate": "{{ pool.apy }}",
+  "amount": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "{{ pool.tvlUsd }}"
+  },
+  "url": "{{ site_url }}/pools/{{ pool.slug }}.html"
+}
+</script>
+{% endblock %}
+
 {% block extra_css %}
 .btn-cta {
 display: block;
@@ -74,6 +102,21 @@ box-shadow: 0 6px 20px rgba(255, 204, 0, 0.5);
             <div style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary);">${{
                 "{:,.0f}".format(pool.tvlUsd) }}</div>
         </div>
+    </div>
+</div>
+
+<div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+    <h3 style="margin-bottom: 1.5rem;">Similar Yield Opportunities</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+        {% for similar in similar_pools %}
+        <a href="/pools/{{ similar.slug }}.html" class="card"
+            style="text-decoration: none; padding: 1.5rem; display: block;">
+            <div style="font-weight: 700; color: var(--text-primary);">{{ similar.symbol }}</div>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">{{ similar.project }}
+            </div>
+            <span class="badge badge-positive">{{ similar.apy|round(2) }}% APY</span>
+        </a>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

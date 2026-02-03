@@ -45,4 +45,16 @@
         </tbody>
     </table>
 </div>
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+    <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Recently Indexed Opportunities</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        {% for pool in recent_pools %}
+        <a href="/pools/{{ pool.slug }}.html"
+            style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.2s ease;">
+            {{ pool.symbol }} on {{ pool.project }} ({{ pool.apy|round(1) }}%)
+        </a>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}
