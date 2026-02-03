@@ -3,6 +3,7 @@ import os
 import datetime
 from jinja2 import Environment, FileSystemLoader
 from slugify import slugify
+import shutil
 
 # Configuration
 DATA_FILE = os.path.join("data", "yields.json")
@@ -110,5 +111,15 @@ Sitemap: {SITE_URL}/sitemap.xml
     with open(os.path.join(OUTPUT_DIR, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(robots_content)
 
+    # 9. Copy Static Assets
+    print("[*] Copying static assets...")
+    static_src = "static"
+    static_dst = os.path.join(OUTPUT_DIR, "static")
+    
+    if os.path.exists(static_src):
+        if os.path.exists(static_dst):
+            shutil.rmtree(static_dst)
+        shutil.copytree(static_src, static_dst)
+    
 if __name__ == "__main__":
     build_site()
